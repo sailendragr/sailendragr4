@@ -1,0 +1,49 @@
+create table student
+(
+ SID int primary key,
+ SName varchar(30) not null,
+ DOB date not null,
+ Gender char(1) not null check(Gender='M' or Gender='F'),
+ Address varchar(30) null,
+ Mobile varchar(10) null,
+ DID not null,
+ foreign key (DID) references Department(DID)
+);
+create table Department
+( 
+ DID int primary key,
+ DName varchar(10) unique
+);
+create table employee
+(
+ EID int primary key,
+ EName varchar(30) not null,
+ DID int not null,
+ Gender char(1) not null check(Gender='M' or Gender='F'),
+ city varchar(20) null,
+ mobile varchar(30) null,
+ foreign key (DID) references Department(DID)
+);
+insert into Department values (15,'csse');
+insert into Department values (16,'cse');
+insert into Department values (17,'IT');
+insert into Department values (18,'AI');
+insert into Department values (19,'csbs');
+insert into Department values (20,'civ');
+insert into Department values (21,'mec');
+insert into Department values (22,'csds');
+
+insert into student values(1501,'rithwik','01-JAN-02','nandyal','M','9234578103',15);
+insert into student values(1502,'satish','12-MAY-01','nellore','M','9234578112',15);
+insert into student values(1503,'sandhya','21-AUG-02','chittoor','F','9234599103',20);
+insert into student values(1504,'sindhu','30-JAN-02','chittoor','F','9234578111',16);
+insert into student values(1505,'saradhi','22-DEC-03','prakasam','M','9233278103',19);
+insert into student values(1506,'rithika','18-JUl-02','kadapa','F','9235578103',21);
+insert into student values(1507,'anand','01-Jun-02','araku','M','9234578003',18);
+insert into student values(1508,'rudra','25-MAR-02','ragampeta','M','9222578103',22);
+insert into student values(1509,'rakhi','12-NOV-02','nandyal','M','9234578603',15);
+insert into student values(1510,'raju','15-SEP-02','nandyal','M','9234578503',17);
+insert into student values(1511,'venky','tirupati','M','9234579803',15);
+insert into student values(1512,'zakib','kuppam','M','8534578103',20);
+insert into student values(1513,'rithwik','nandyal','M','9264578103',21);
+insert into student values(1514,'lalithya','chittoor','F','9234578103',16);
